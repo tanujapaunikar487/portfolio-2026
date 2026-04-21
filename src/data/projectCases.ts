@@ -8,7 +8,7 @@ export type ProjectCase = {
   title: string;
   description: string;
   ctaLabel: string;
-  ctaHref: string;
+  ctaHref?: string;
   stack: { name: string; src: string }[];
   cards: SpecialCard[];
 };
@@ -33,8 +33,7 @@ export const projectCases: ProjectCase[] = [
     title: "Orime",
     description:
       "Rewards intelligence for Indian cardholders, because using your own points shouldn't be this hard.",
-    ctaLabel: "Open Orime",
-    ctaHref: "#",
+    ctaLabel: "Coming soon on App Store",
     stack: [
       { name: "Swift", src: "/images/swift.svg" },
       { name: "Firebase", src: "/images/firebase.svg" },

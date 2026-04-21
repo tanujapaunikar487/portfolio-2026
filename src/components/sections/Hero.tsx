@@ -45,16 +45,6 @@ export default function Hero() {
             </li>
             <li>
               <a
-                href="https://contra.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black underline underline-offset-4"
-              >
-                Contra
-              </a>
-            </li>
-            <li>
-              <a
                 href="https://www.linkedin.com/"
                 target="_blank"
                 rel="noreferrer"

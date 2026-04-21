@@ -3,10 +3,6 @@
 import Link from "next/link";
 
 const socials = [
-  {
-    label: "Contra",
-    href: "https://contra.com/tanuja_paunikar_y20pv2lj/work?r=tanuja_paunikar_y20pv2lj",
-  },
   { label: "LinkedIn", href: "#" },
   { label: "Dribbble", href: "https://dribbble.com/tanujaa" },
 ];
