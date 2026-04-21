@@ -33,7 +33,8 @@ export const projectCases: ProjectCase[] = [
     title: "Orime",
     description:
       "Rewards intelligence for Indian cardholders, because using your own points shouldn't be this hard.",
-    ctaLabel: "Coming soon on App Store",
+    ctaLabel: "View on App Store",
+    ctaHref: "https://apps.apple.com/app/id6762404916",
     stack: [
       { name: "Swift", src: "/images/swift.svg" },
       { name: "Firebase", src: "/images/firebase.svg" },
