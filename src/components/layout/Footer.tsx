@@ -17,7 +17,7 @@ function Pill({
   onClick?: () => void;
 }) {
   const className =
-    "inline-flex h-9 items-center justify-center rounded-full border border-black/15 bg-white px-4 text-sm text-black transition hover:bg-neutral-100";
+    "inline-flex items-center text-sm text-black underline underline-offset-4 transition hover:text-black/60";
   if (onClick) {
     return (
       <button onClick={onClick} className={className}>
@@ -45,19 +45,19 @@ export default function Footer() {
   return (
     <footer className="px-6 pt-24 pb-6 md:px-10">
       <div className="border-t border-black/10 pt-12">
-        <p className="text-5xl tracking-tight text-black/40 md:text-5xl">
+        <p className="text-3xl md:text-5xl tracking-tight text-black/40">
           Get in touch
         </p>
         <a
           href="mailto:tanuja.paunikar@gmail.com"
-          className="mt-2 block text-5xl tracking-tight text-black hover:underline md:text-5xl"
+          className="mt-2 block text-3xl md:text-5xl tracking-tight text-black hover:underline"
         >
           tanuja.paunikar@gmail.com
         </a>
       </div>
 
       <div className="mt-24 flex flex-col gap-6 md:grid md:grid-cols-3 md:items-center">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-6">
           {socials.map((s) => (
             <Pill key={s.label} href={s.href}>
               {s.label}
@@ -69,7 +69,7 @@ export default function Footer() {
           Based in Pune, working with clients worldwide.
         </p>
 
-        <div className="flex flex-wrap gap-2 md:justify-end">
+        <div className="flex flex-wrap gap-6 md:justify-end">
           <Pill onClick={scrollTop}>
             <span className="flex items-center gap-2">
               <span aria-hidden>↑</span>
