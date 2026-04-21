@@ -65,7 +65,7 @@ export default function Hero() {
             </li>
             <li>
               <a
-                href="https://dribbble.com/"
+                href="https://dribbble.com/tanujaa"
                 target="_blank"
                 rel="noreferrer"
                 className="text-black underline underline-offset-4"
