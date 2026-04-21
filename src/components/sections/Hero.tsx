@@ -67,7 +67,7 @@ export default function Hero() {
         </div>
 
         {/* Right: description + logos */}
-        <div className="md:w-[60%] md:shrink-0 lg:ml-auto lg:w-[720px]">
+        <div className="md:w-full md:max-w-[720px] md:ml-auto">
           <p className="text-[30px] leading-[1.2] tracking-[-0.02em] font-medium text-black/40">
             <span className="text-black">Product Designer.</span> I design
             interfaces that make complex things feel simple. 9+ years across

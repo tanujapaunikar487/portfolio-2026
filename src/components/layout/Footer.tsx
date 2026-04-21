@@ -45,12 +45,12 @@ export default function Footer() {
   return (
     <footer className="px-6 pt-24 pb-6 md:px-10">
       <div className="border-t border-black/10 pt-12">
-        <p className="text-3xl md:text-5xl tracking-tight text-black/40">
+        <p className="text-5xl tracking-tight text-black/40">
           Get in touch
         </p>
         <a
           href="mailto:tanuja.paunikar@gmail.com"
-          className="mt-2 block text-3xl md:text-5xl tracking-tight text-black hover:underline"
+          className="mt-2 block whitespace-nowrap text-[clamp(1.5rem,7.2vw,3rem)] tracking-tight text-black hover:underline"
         >
           tanuja.paunikar@gmail.com
         </a>

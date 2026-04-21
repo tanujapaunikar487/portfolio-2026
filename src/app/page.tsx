@@ -17,7 +17,7 @@ export default function Home() {
           className="mb-12"
           style={{ paddingInline: "var(--rail-pad)" }}
         >
-          <h2 className="text-3xl md:text-5xl tracking-[-0.03em]">Recent Projects</h2>
+          <h2 className="text-4xl md:text-5xl tracking-[-0.03em]">Recent Projects</h2>
         </div>
 
         {projectCases.map((p, i) => (
