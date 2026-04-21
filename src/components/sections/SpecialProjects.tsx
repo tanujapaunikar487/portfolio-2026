@@ -98,14 +98,14 @@ export default function SpecialProjects({
         {cards.map((card, i) => (
           <article
             key={i}
-            className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[1000px]"
+            className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px]"
           >
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-neutral-100">
               <Image
                 src={card.image}
                 alt={card.title}
                 fill
-                sizes="(min-width: 768px) 1000px, 85vw"
+                sizes="(min-width: 768px) 920px, 85vw"
                 className="object-cover"
                 draggable={false}
                 priority={i < 2}
