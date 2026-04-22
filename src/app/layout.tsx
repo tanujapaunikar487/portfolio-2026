@@ -13,7 +13,7 @@ const serif = Fraunces({
 
 const siteUrl = "https://tanujapaunikar.co";
 const description =
-  "Product Designer with 9+ years designing interfaces that make complex things feel simple. Featured work for HealthFirst, Orime, and AIOSEO — shaping products from early concepts to shipped experiences.";
+  "Product Designer with 9+ years designing interfaces that make complex things feel simple. Shaping products from early concepts to shipped experiences.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
