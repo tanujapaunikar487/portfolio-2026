@@ -17,7 +17,7 @@ function Pill({
   onClick?: () => void;
 }) {
   const className =
-    "inline-flex items-center text-sm text-black underline underline-offset-4 transition hover:text-black/60";
+    "inline-flex items-center text-sm text-black underline underline-offset-4 transition hover:text-muted";
   if (onClick) {
     return (
       <button onClick={onClick} className={className}>
@@ -45,7 +45,7 @@ export default function Footer() {
   return (
     <footer className="px-6 pt-24 pb-6 md:px-10">
       <div className="border-t border-black/10 pt-12">
-        <p className="text-5xl tracking-tight text-black/40">
+        <p className="text-5xl tracking-tight text-muted">
           Get in touch
         </p>
         <a
@@ -65,7 +65,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="text-sm text-black/60 md:text-center">
+        <p className="text-sm text-muted md:text-center">
           Based in Pune, working with clients worldwide.
         </p>
 

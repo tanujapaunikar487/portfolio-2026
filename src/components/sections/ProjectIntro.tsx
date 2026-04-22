@@ -8,7 +8,7 @@ export default function ProjectIntro({ project }: { project: ProjectCase }) {
       style={{ paddingInline: "var(--rail-pad)" }}
     >
       <div className="max-w-[38rem]">
-        <p className="text-[30px] font-medium leading-[1.3] tracking-tight text-black/55">
+        <p className="text-[30px] font-medium leading-[1.3] tracking-tight text-muted">
           <span className="text-black">{project.title}.</span>{" "}
           {project.description}
         </p>

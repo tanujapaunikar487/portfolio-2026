@@ -14,6 +14,25 @@ const serif = Fraunces({
 export const metadata: Metadata = {
   title: "Tanuja Paunikar — Portfolio",
   description: "Designer & developer portfolio.",
+  openGraph: {
+    title: "Tanuja Paunikar — Portfolio",
+    description: "Designer & developer portfolio.",
+    images: [
+      {
+        url: "/images/og-tanujapaunikar.png",
+        width: 1200,
+        height: 630,
+        alt: "Tanuja Paunikar — Product Designer",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tanuja Paunikar — Portfolio",
+    description: "Designer & developer portfolio.",
+    images: ["/images/og-tanujapaunikar.png"],
+  },
 };
 
 export default function RootLayout({

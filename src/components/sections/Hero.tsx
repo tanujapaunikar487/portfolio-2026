@@ -31,7 +31,7 @@ export default function Hero() {
         {/* Left: identity + contact */}
         <div className="text-[16px] leading-[1.5] tracking-[-0.01em]">
           <p className="text-[22px] font-medium text-black lg:whitespace-nowrap">Tanuja Paunikar</p>
-          <p className="text-black/50 tabular-nums lg:whitespace-nowrap">
+          <p className="text-muted tabular-nums lg:whitespace-nowrap">
             GMT+5:30 — {time} Pune, India.
           </p>
           <ul className="mt-5 flex flex-col items-start gap-1">
@@ -68,7 +68,7 @@ export default function Hero() {
 
         {/* Right: description + logos */}
         <div className="md:w-full md:max-w-[720px] md:ml-auto">
-          <p className="text-[30px] leading-[1.2] tracking-[-0.02em] font-medium text-black/40">
+          <p className="text-[30px] leading-[1.2] tracking-[-0.02em] font-medium text-muted">
             <span className="text-black">Product Designer.</span> I design
             interfaces that make complex things feel simple. 9+ years across
             agency and in-house teams, shaping products from early concepts to

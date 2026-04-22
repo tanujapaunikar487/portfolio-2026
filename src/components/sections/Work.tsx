@@ -73,7 +73,7 @@ export default function Work() {
                     className="object-cover"
                   />
                 </div>
-                <p className="mt-3 text-xs text-black/60">
+                <p className="mt-3 text-xs text-muted">
                   <span className="text-black">{p.client}</span> - {p.category}
                 </p>
               </div>
