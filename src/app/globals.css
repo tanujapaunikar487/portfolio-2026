@@ -4,7 +4,7 @@
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
   --color-black: #000000;
-  --color-muted: color-mix(in oklab, var(--color-black) 40%, transparent);
+  --color-muted: color-mix(in oklab, var(--color-black) 50%, transparent);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
 }
