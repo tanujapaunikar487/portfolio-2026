@@ -12,33 +12,44 @@ const serif = Fraunces({
 });
 
 const siteUrl = "https://tanujapaunikar.co";
+const title = "Tanuja Paunikar — Portfolio";
 const description =
   "Product Designer with 9+ years designing interfaces that make complex things feel simple. Shaping products from early concepts to shipped experiences.";
+const ogImage = {
+  url: "/images/og-tanujapaunikar.png",
+  secureUrl: `${siteUrl}/images/og-tanujapaunikar.png`,
+  width: 1200,
+  height: 630,
+  alt: "Tanuja Paunikar — Product Designer",
+  type: "image/png",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Tanuja Paunikar — Portfolio",
+  title,
   description,
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
-    title: "Tanuja Paunikar — Portfolio",
+    title,
     description,
     url: siteUrl,
     siteName: "Tanuja Paunikar",
-    images: [
-      {
-        url: "/images/og-tanujapaunikar.png",
-        width: 1200,
-        height: 630,
-        alt: "Tanuja Paunikar — Product Designer",
-      },
-    ],
+    locale: "en_US",
     type: "website",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tanuja Paunikar — Portfolio",
+    title,
     description,
-    images: ["/images/og-tanujapaunikar.png"],
+    images: [
+      {
+        url: "/images/og-tanujapaunikar.png",
+        alt: "Tanuja Paunikar — Product Designer",
+      },
+    ],
   },
 };
 
