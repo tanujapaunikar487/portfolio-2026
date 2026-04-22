@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { projects, type Project } from "@/data/projects";
 
@@ -61,11 +60,7 @@ export default function Work() {
         {distributed.map((col, i) => (
           <div key={i} className="flex flex-1 flex-col gap-10 md:gap-12">
             {col.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/work/${p.slug}`}
-                className="block"
-              >
+              <div key={p.slug}>
                 <div
                   className="relative w-full overflow-hidden bg-neutral-100"
                   style={{ aspectRatio: p.aspect }}
@@ -81,7 +76,7 @@ export default function Work() {
                 <p className="mt-3 text-xs text-black/60">
                   <span className="text-black">{p.client}</span> - {p.category}
                 </p>
-              </Link>
+              </div>
             ))}
           </div>
         ))}

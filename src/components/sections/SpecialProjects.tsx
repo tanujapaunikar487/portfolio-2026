@@ -111,7 +111,7 @@ export default function SpecialProjects({
                 priority={i < 2}
               />
             </div>
-            <p className="mt-6 max-w-[45rem] text-[18px] font-medium leading-[1.3] tracking-[-0.022em] text-black/55">
+            <p className="mt-6 max-w-[45rem] text-base md:text-[18px] font-medium leading-[1.3] tracking-[-0.022em] text-black/55">
               <span className="text-black">{card.title}.</span>{" "}
               {card.body}
             </p>

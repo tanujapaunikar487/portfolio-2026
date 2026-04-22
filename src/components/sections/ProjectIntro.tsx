@@ -8,7 +8,7 @@ export default function ProjectIntro({ project }: { project: ProjectCase }) {
       style={{ paddingInline: "var(--rail-pad)" }}
     >
       <div className="max-w-[38rem]">
-        <p className="text-xl md:text-[30px] font-medium leading-[1.3] tracking-tight text-black/55">
+        <p className="text-[30px] font-medium leading-[1.3] tracking-tight text-black/55">
           <span className="text-black">{project.title}.</span>{" "}
           {project.description}
         </p>
@@ -32,7 +32,7 @@ export default function ProjectIntro({ project }: { project: ProjectCase }) {
           href={project.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex h-10 items-center justify-center self-start rounded-full bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 md:self-end"
+          className="inline-flex h-10 items-center justify-center self-start whitespace-nowrap rounded-full bg-black px-5 text-sm font-medium text-white transition hover:bg-neutral-800 md:self-end"
         >
           {project.ctaLabel}
         </a>
@@ -41,7 +41,7 @@ export default function ProjectIntro({ project }: { project: ProjectCase }) {
           type="button"
           disabled
           aria-disabled="true"
-          className="inline-flex h-10 cursor-not-allowed items-center justify-center self-start rounded-full bg-black/40 px-5 text-sm font-medium text-white md:self-end"
+          className="inline-flex h-10 cursor-not-allowed items-center justify-center self-start whitespace-nowrap rounded-full bg-black/40 px-5 text-sm font-medium text-white md:self-end"
         >
           {project.ctaLabel}
         </button>
