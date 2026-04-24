@@ -72,8 +72,7 @@ export default function Hero() {
             <span className="text-black">Product Designer.</span> I design
             interfaces that make complex things feel simple. 9+ years across
             agency and in-house teams, shaping products from early concepts to
-            shipped experience. I prototype with Claude Code to make ideas
-            tangible early.
+            shipped experience.
           </p>
         </div>
       </div>
