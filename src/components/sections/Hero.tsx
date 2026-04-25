@@ -28,6 +28,24 @@ function useLocalTime(timeZone: string) {
   return time;
 }
 
+function SplitLetters({ text }: { text: string }) {
+  return (
+    <>
+      {Array.from(text).map((ch, i) => (
+        <span
+          key={i}
+          aria-hidden
+          className="hero-letter-mask inline-block overflow-hidden align-bottom pb-[0.04em] leading-[1]"
+        >
+          <span className="hero-letter inline-block will-change-transform">
+            {ch === " " ? " " : ch}
+          </span>
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function Hero() {
   const time = useLocalTime("Asia/Kolkata");
   const heroRef = useRef<HTMLDivElement>(null);
@@ -49,9 +67,19 @@ export default function Hero() {
     });
     document.body.appendChild(probe);
 
+    const renderProbe = (text: string) => {
+      probe.textContent = "";
+      for (const ch of text) {
+        const letter = document.createElement("span");
+        letter.style.display = "inline-block";
+        letter.textContent = ch === " " ? " " : ch;
+        probe.appendChild(letter);
+      }
+    };
+
     const fit = () => {
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-      probe.textContent = isDesktop ? "Tanuja Paunikar" : "Paunikar";
+      renderProbe(isDesktop ? "Tanuja Paunikar" : "Paunikar");
       const natural = probe.getBoundingClientRect().width;
       const target = window.innerWidth - 40;
       if (natural > 0) {
@@ -82,8 +110,7 @@ export default function Hero() {
           ".hero-photo",
           ".hero-x",
           ".hero-tool",
-          ".hero-name-mask",
-          ".hero-name-inner",
+          ".hero-letter",
         ],
         { willChange: "transform, opacity" },
       );
@@ -95,14 +122,13 @@ export default function Hero() {
             ".hero-using",
             ".hero-photo",
             ".hero-x",
-            ".hero-name-inner",
+            ".hero-letter",
           ],
-          { autoAlpha: 1, y: 0, scale: 1, clearProps: "willChange" },
+          { autoAlpha: 1, y: 0, yPercent: 0, scale: 1, clearProps: "willChange,transform,opacity" },
         );
         const allTools = gsap.utils.toArray<HTMLElement>(".hero-tool");
         gsap.set(allTools, { autoAlpha: 0, yPercent: 0 });
         if (allTools[0]) gsap.set(allTools[0], { autoAlpha: 1 });
-        gsap.set(".hero-name-mask", { clipPath: "inset(0% 0 0 0)" });
         return;
       }
 
@@ -148,23 +174,16 @@ export default function Hero() {
           "-=0.4",
         )
         .fromTo(
-          ".hero-name-mask",
-          { clipPath: "inset(0% 0 100% 0)" },
+          ".hero-letter",
+          { yPercent: -110, autoAlpha: 0 },
           {
-            clipPath: "inset(0% 0 0% 0)",
-            duration: 1.2,
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 1.05,
             ease: "power4.out",
+            stagger: 0.04,
           },
           "-=0.5",
-        )
-        .from(
-          ".hero-name-inner",
-          {
-            yPercent: 30,
-            duration: 1.2,
-            ease: "power4.out",
-          },
-          "<",
         );
 
       if (tools.length > 1) {
@@ -298,12 +317,14 @@ export default function Hero() {
             </span>
             <h1
               style={{ fontSize: nameFontSize }}
-              className="hero-name-mask mx-[-4px] w-[calc(100dvw-40px)] text-center font-normal leading-[1] tracking-[-0.04em] text-black"
+              aria-label="Tanuja Paunikar"
+              className="mx-[-4px] w-[calc(100dvw-40px)] text-center font-normal leading-[1] tracking-[-0.04em] text-black"
             >
-              <span className="hero-name-inner inline-block">
-                Tanuja
-                <br />
-                Paunikar
+              <span className="block">
+                <SplitLetters text="Tanuja" />
+              </span>
+              <span className="block">
+                <SplitLetters text="Paunikar" />
               </span>
             </h1>
             <span className="hero-using font-medium text-black">
@@ -313,11 +334,10 @@ export default function Hero() {
 
           <h1
             style={{ fontSize: nameFontSize }}
-            className="hero-name-mask hidden whitespace-nowrap text-left font-normal leading-[1] tracking-[-0.04em] text-black md:mx-[-20px] md:block md:w-[calc(100dvw-40px)]"
+            aria-label="Tanuja Paunikar"
+            className="hidden whitespace-nowrap text-left font-normal leading-[1] tracking-[-0.04em] text-black md:mx-[-20px] md:block md:w-[calc(100dvw-40px)]"
           >
-            <span className="hero-name-inner inline-block pb-[0.04em]">
-              Tanuja Paunikar
-            </span>
+            <SplitLetters text="Tanuja Paunikar" />
           </h1>
         </div>
       </section>
