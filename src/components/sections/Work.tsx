@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { projects, type Project } from "@/data/projects";
+import { v } from "@/lib/asset";
 
 function ratioOf(p: Project) {
   const [w, h] = p.aspect.split("/").map(Number);
@@ -67,7 +68,7 @@ export default function Work() {
                   style={{ aspectRatio: p.aspect }}
                 >
                   <img
-                    src={p.cover}
+                    src={v(p.cover)}
                     alt={p.title}
                     loading="lazy"
                     decoding="async"

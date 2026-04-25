@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { specialProjects, type SpecialCard } from "@/data/special";
+import { v } from "@/lib/asset";
 
 export default function SpecialProjects({
   cards = specialProjects,
@@ -109,10 +110,10 @@ export default function SpecialProjects({
             <div className="relative aspect-[9/10] w-full overflow-hidden rounded-2xl bg-neutral-100 md:aspect-[16/9]">
               <picture>
                 {card.mobileImage ? (
-                  <source media="(max-width: 767px)" srcSet={card.mobileImage} />
+                  <source media="(max-width: 767px)" srcSet={v(card.mobileImage)} />
                 ) : null}
                 <img
-                  src={card.image}
+                  src={v(card.image)}
                   alt={card.title}
                   loading={i === 0 ? "eager" : "lazy"}
                   decoding="async"
