@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Fraunces } from "next/font/google";
-import SmoothScroll from "@/components/layout/SmoothScroll";
 import Cursor from "@/components/ui/Cursor";
 import "./globals.css";
 
@@ -62,10 +61,8 @@ export default function RootLayout({
       className={`${sans.variable} ${serif.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-neutral-900">
-        <SmoothScroll>
-          <Cursor />
-          {children}
-        </SmoothScroll>
+        <Cursor />
+        {children}
       </body>
     </html>
   );

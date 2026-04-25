@@ -81,7 +81,7 @@ export default function SpecialProjects({
     if (!el) return;
     const card = el.querySelector("article");
     const step = card ? card.clientWidth + 24 : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
+    el.scrollBy({ left: dir * step });
   };
 
   return (
@@ -93,7 +93,7 @@ export default function SpecialProjects({
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
-        className={`no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth md:gap-6 ${
+        className={`no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain md:gap-6 ${
           grabbing ? "select-none" : ""
         }`}
         style={{

@@ -40,7 +40,7 @@ function Pill({
 
 export default function Footer() {
   const scrollTop = () =>
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
 
   return (
     <footer className="px-6 pt-24 pb-10 md:px-10">
