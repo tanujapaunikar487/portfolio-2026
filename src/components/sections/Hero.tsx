@@ -30,7 +30,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-screen flex-col px-6 md:px-10">
-      <div className="absolute inset-x-6 top-5 z-10 flex items-start justify-between gap-4 text-[14px] md:inset-x-10 md:top-6 md:grid md:grid-cols-3 md:items-center">
+      <div className="z-10 flex items-start justify-between gap-4 pt-5 text-[14px] md:absolute md:inset-x-10 md:top-6 md:grid md:grid-cols-3 md:items-center md:pt-0">
         <div className="flex flex-col gap-2 md:contents">
           <div className="flex items-center gap-2">
             <span
