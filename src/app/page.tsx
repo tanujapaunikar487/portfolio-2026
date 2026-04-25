@@ -17,7 +17,7 @@ export default function Home() {
           className="mb-12"
           style={{ paddingInline: "var(--rail-pad)" }}
         >
-          <h2 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1] tracking-[-0.02em] text-black">
+          <h2 className="text-[2.5rem] leading-[1] tracking-[-0.02em] text-black md:text-[52px] lg:text-[80px]">
             Recent Projects.
           </h2>
         </div>

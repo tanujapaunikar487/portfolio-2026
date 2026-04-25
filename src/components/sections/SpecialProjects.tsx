@@ -39,6 +39,7 @@ export default function SpecialProjects({
   }, []);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
     const el = scroller.current;
     if (!el) return;
     drag.current = {
@@ -49,7 +50,6 @@ export default function SpecialProjects({
     };
     setGrabbing(true);
     el.setPointerCapture(e.pointerId);
-    el.style.scrollSnapType = "none";
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -66,7 +66,6 @@ export default function SpecialProjects({
     try {
       scroller.current.releasePointerCapture(e.pointerId);
     } catch {}
-    scroller.current.style.scrollSnapType = "";
   };
 
   const onClickCapture = (e: React.MouseEvent) => {
@@ -93,11 +92,11 @@ export default function SpecialProjects({
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
         onClickCapture={onClickCapture}
-        className={`no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain md:gap-6 ${
+        className={`no-scrollbar flex snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain md:gap-6 ${
           grabbing ? "select-none" : ""
         }`}
         style={{
-          touchAction: "pan-y",
+          touchAction: "pan-x pan-y",
           paddingInline: "var(--rail-pad)",
           scrollPaddingInlineStart: "var(--rail-pad)",
         }}

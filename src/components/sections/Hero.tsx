@@ -85,22 +85,22 @@ export default function Hero() {
           </TextMarquee>
         </div>
 
-        <h1 className="mt-[40px] whitespace-nowrap text-left font-normal leading-[0.9] tracking-[-0.04em] text-black text-[calc((100vw-48px)/6.8)] md:mt-[80px] md:text-[calc((100vw-80px)/6.8)]">
+        <h1 className="mt-[40px] whitespace-nowrap text-left font-normal leading-[0.9] tracking-[-0.04em] text-black text-[calc((100vw-48px)/6.7)] md:mt-[80px] md:text-[calc((100vw-80px)/6.7)]">
           Tanuja Paunikar
         </h1>
 
-        <div className="mt-8 flex max-w-[38rem] flex-col gap-4">
-          <p className="text-[20px] leading-[1.3] tracking-[-0.02em] font-medium text-muted">
-            A decade in, I work the full arc of a product, shaping the
-            direction with the team, then taking it from idea to something
-            real in people&rsquo;s hands. Having done this for early-stage
-            startups and large teams alike, I&rsquo;ve learned the craft only
-            matters once the right thing is built.
+        <div className="mt-8 flex flex-col gap-4 md:ml-auto md:mt-12 md:max-w-[740px]">
+          <p className="text-[20px] leading-[28px] tracking-[-0.02em] font-medium text-muted">
+            Spent the past decade working across the full arc of a product,
+            from shaping direction to building and shipping what people use.
+            Experience spans early-stage startups and larger teams, with a
+            consistent focus on getting the right thing built.
           </p>
-          <p className="text-[20px] leading-[1.3] tracking-[-0.02em] font-medium text-muted">
-            These days I design in AI-native IDEs, sketch to production with
-            no handoff. Craft moved into the build, and that&rsquo;s the part
-            I&rsquo;m here for.
+          <p className="text-[20px] leading-[28px] tracking-[-0.02em] font-medium text-muted">
+            I work from idea to working product, using modern tools and AI to
+            close the gap between concept and reality. Most of my time goes
+            into refining working prototypes, using tools like Claude and
+            Codex to shape the product as it is built.
           </p>
         </div>
       </div>

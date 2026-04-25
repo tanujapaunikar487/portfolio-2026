@@ -54,7 +54,7 @@ export default function Work() {
 
   return (
     <section className="px-6 pt-24 pb-16 md:px-10">
-      <h2 className="mb-10 text-[clamp(2.5rem,5vw,4rem)] leading-[1] tracking-[-0.02em] text-black">
+      <h2 className="mb-10 text-[2.5rem] leading-[1] tracking-[-0.02em] text-black md:text-[52px] lg:text-[80px]">
         From the archive.
       </h2>
 
