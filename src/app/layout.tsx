@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Fraunces } from "next/font/google";
 import Cursor from "@/components/ui/Cursor";
 import "./globals.css";
-
-const sans = Geist({ variable: "--font-sans", subsets: ["latin"] });
-const serif = Fraunces({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  axes: ["opsz"],
-});
 
 const siteUrl = "https://tanujapaunikar.co";
 const title = "Tanuja Paunikar — Portfolio";
@@ -58,7 +50,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${serif.variable} h-full antialiased`}
+      className="h-full antialiased"
+      style={
+        {
+          "--font-sans": "system-ui",
+          "--font-serif": "Georgia",
+        } as React.CSSProperties
+      }
     >
       <body className="flex min-h-full flex-col bg-white text-neutral-900">
         <Cursor />

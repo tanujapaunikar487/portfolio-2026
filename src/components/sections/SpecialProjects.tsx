@@ -12,6 +12,8 @@ export default function SpecialProjects({
   const scroller = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
   const rafId = useRef<number | null>(null);
+  const moveRaf = useRef<number | null>(null);
+  const pendingScrollLeft = useRef<number | null>(null);
   const [grabbing, setGrabbing] = useState(false);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -56,13 +58,25 @@ export default function SpecialProjects({
     if (!drag.current.active || !scroller.current) return;
     const dx = e.clientX - drag.current.startX;
     drag.current.moved = Math.abs(dx);
-    scroller.current.scrollLeft = drag.current.startScroll - dx;
+    pendingScrollLeft.current = drag.current.startScroll - dx;
+    if (moveRaf.current != null) return;
+    moveRaf.current = requestAnimationFrame(() => {
+      moveRaf.current = null;
+      const el = scroller.current;
+      const next = pendingScrollLeft.current;
+      if (el && next != null) el.scrollLeft = next;
+    });
   };
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!drag.current.active || !scroller.current) return;
     drag.current.active = false;
     setGrabbing(false);
+    if (moveRaf.current != null) {
+      cancelAnimationFrame(moveRaf.current);
+      moveRaf.current = null;
+    }
+    pendingScrollLeft.current = null;
     try {
       scroller.current.releasePointerCapture(e.pointerId);
     } catch {}
@@ -106,7 +120,9 @@ export default function SpecialProjects({
             key={i}
             className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px]"
           >
-            <div className="relative aspect-[9/10] w-full overflow-hidden rounded-2xl bg-neutral-100 md:aspect-[16/9]">
+            <div
+              className="relative aspect-[9/10] w-full overflow-hidden rounded-[20px] bg-neutral-100 md:aspect-[16/9]"
+            >
               <picture>
                 {card.mobileImage ? (
                   <source media="(max-width: 767px)" srcSet={v(card.mobileImage)} />

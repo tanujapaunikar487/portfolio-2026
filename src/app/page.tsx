@@ -1,6 +1,7 @@
 import HeroTrail from "@/components/sections/HeroTrail";
 import Work from "@/components/sections/Work";
 import ProjectCase from "@/components/sections/ProjectCase";
+import RecentProjects from "@/components/sections/RecentProjects";
 import Footer from "@/components/layout/Footer";
 import { projectCases } from "@/data/projectCases";
 
@@ -9,19 +10,7 @@ export default function Home() {
     <main>
       <HeroTrail />
 
-      <div
-        className="pb-20"
-        style={{ ["--rail-pad" as string]: "clamp(1.5rem, 4vw, 2.5rem)" }}
-      >
-        <div
-          className="mb-12"
-          style={{ paddingInline: "var(--rail-pad)" }}
-        >
-          <h2 className="text-[2.5rem] leading-[1] tracking-[-0.02em] text-black md:text-[52px] lg:text-[80px]">
-            Recent Projects.
-          </h2>
-        </div>
-
+      <RecentProjects heading="Recent Projects.">
         {projectCases.map((p, i) => (
           <ProjectCase
             key={p.id + i}
@@ -29,7 +18,7 @@ export default function Home() {
             className={i > 0 ? "mt-[80px]" : ""}
           />
         ))}
-      </div>
+      </RecentProjects>
 
       <Work />
       <Footer />

@@ -31,3 +31,24 @@ body {
   scrollbar-width: none;
 }
 
+[data-anim="mask"] {
+  clip-path: inset(0 0 100% 0);
+}
+[data-anim="fade-up"] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+[data-anim="fade-up-sm"] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+[data-anim="image-mask"] {
+  clip-path: inset(0 0 100% 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-anim] {
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
