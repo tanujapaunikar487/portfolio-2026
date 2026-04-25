@@ -54,7 +54,9 @@ export default function Work() {
 
   return (
     <section className="px-6 pt-24 pb-16 md:px-10">
-      <h2 className="mb-10 text-4xl md:text-5xl tracking-[-0.03em]">From the archive</h2>
+      <h2 className="mb-10 text-[clamp(2.5rem,5vw,4rem)] leading-[1] tracking-[-0.02em] text-black">
+        From the archive.
+      </h2>
 
       <div className="flex items-start gap-6 border-t border-black/10 pt-12 md:gap-8">
         {distributed.map((col, i) => (

@@ -14,7 +14,7 @@ const serif = Fraunces({
 const siteUrl = "https://tanujapaunikar.co";
 const title = "Tanuja Paunikar — Portfolio";
 const description =
-  "Product Designer with 9+ years designing interfaces that make complex things feel simple. Shaping products from early concepts to shipped experiences.";
+  "Product Designer shaping interfaces that make complex things feel simple.";
 const ogImage = {
   url: "/images/og-tanujapaunikar.png?v=2",
   secureUrl: `${siteUrl}/images/og-tanujapaunikar.png?v=2`,
