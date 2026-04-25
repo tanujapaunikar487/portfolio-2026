@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { specialProjects, type SpecialCard } from "@/data/special";
 
@@ -11,6 +10,7 @@ export default function SpecialProjects({
 }) {
   const scroller = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
+  const rafId = useRef<number | null>(null);
   const [grabbing, setGrabbing] = useState(false);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
@@ -18,16 +18,22 @@ export default function SpecialProjects({
   useEffect(() => {
     const el = scroller.current;
     if (!el) return;
-    const update = () => {
+    const compute = () => {
+      rafId.current = null;
       setAtStart(el.scrollLeft <= 1);
       setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 1);
     };
-    update();
+    const update = () => {
+      if (rafId.current != null) return;
+      rafId.current = requestAnimationFrame(compute);
+    };
+    compute();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     return () => {
       el.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
+      if (rafId.current != null) cancelAnimationFrame(rafId.current);
     };
   }, []);
 
@@ -100,18 +106,22 @@ export default function SpecialProjects({
             key={i}
             className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px]"
           >
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-neutral-100">
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                sizes="(min-width: 768px) 920px, 85vw"
-                className="object-cover"
-                draggable={false}
-                priority={i < 2}
-              />
+            <div className="relative aspect-[9/10] w-full overflow-hidden rounded-2xl bg-neutral-100 md:aspect-[16/9]">
+              <picture>
+                {card.mobileImage ? (
+                  <source media="(max-width: 767px)" srcSet={card.mobileImage} />
+                ) : null}
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  draggable={false}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </picture>
             </div>
-            <p className="mt-6 max-w-[45rem] text-[20px] font-medium leading-[1.3] tracking-[-0.022em] text-muted">
+            <p className="mt-6 max-w-[45rem] text-[18px] font-medium leading-[1.3] tracking-[-0.022em] text-muted md:text-[20px]">
               <span className="text-black">{card.title}.</span>{" "}
               {card.body}
             </p>

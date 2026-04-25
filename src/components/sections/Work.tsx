@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { projects, type Project } from "@/data/projects";
 
@@ -64,18 +63,18 @@ export default function Work() {
             {col.map((p) => (
               <div key={p.slug}>
                 <div
-                  className="relative w-full overflow-hidden bg-neutral-100"
+                  className="relative w-full overflow-hidden rounded-2xl bg-neutral-100"
                   style={{ aspectRatio: p.aspect }}
                 >
-                  <Image
+                  <img
                     src={p.cover}
                     alt={p.title}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
-                <p className="mt-3 text-xs text-muted">
+                <p className="mt-3 text-sm text-muted">
                   <span className="text-black">{p.client}</span> - {p.category}
                 </p>
               </div>

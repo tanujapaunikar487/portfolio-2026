@@ -85,22 +85,22 @@ export default function Hero() {
           </TextMarquee>
         </div>
 
-        <h1 className="mt-[80px] whitespace-nowrap text-left font-normal leading-[0.9] tracking-[-0.04em] text-black text-[calc((100vw-48px)/6.8)] md:text-[calc((100vw-80px)/6.8)]">
+        <h1 className="mt-[40px] whitespace-nowrap text-left font-normal leading-[0.9] tracking-[-0.04em] text-black text-[calc((100vw-48px)/6.8)] md:mt-[80px] md:text-[calc((100vw-80px)/6.8)]">
           Tanuja Paunikar
         </h1>
 
-        <div className="mt-8 flex max-w-[720px] flex-col gap-4">
+        <div className="mt-8 flex max-w-[38rem] flex-col gap-4">
           <p className="text-[22px] leading-[1.3] tracking-[-0.02em] font-medium text-muted md:text-[20px]">
             A decade in, I work the full arc of a product, shaping the
-            direction with the team, then taking it from idea to something real
-            in people&rsquo;s hands. Having done this for early-stage startups
-            and large teams alike, I&rsquo;ve learned the craft only matters
-            once the right thing is being built.
+            direction with the team, then taking it from idea to something
+            real in people&rsquo;s hands. Having done this for early-stage
+            startups and large teams alike, I&rsquo;ve learned the craft only
+            matters once the right thing is built.
           </p>
           <p className="text-[22px] leading-[1.3] tracking-[-0.02em] font-medium text-muted md:text-[20px]">
-            These days I design inside AI-native IDEs, taking ideas from sketch
-            to production without the handoff. The role is shifting toward
-            craft in the build, and that&rsquo;s the part I&rsquo;m here for.
+            These days I design in AI-native IDEs, sketch to production with
+            no handoff. Craft moved into the build, and that&rsquo;s the part
+            I&rsquo;m here for.
           </p>
         </div>
       </div>
