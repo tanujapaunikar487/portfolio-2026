@@ -90,14 +90,14 @@ export default function Hero() {
         </h1>
 
         <div className="mt-8 flex max-w-[38rem] flex-col gap-4">
-          <p className="text-[22px] leading-[1.3] tracking-[-0.02em] font-medium text-muted md:text-[20px]">
+          <p className="text-[20px] leading-[1.3] tracking-[-0.02em] font-medium text-muted">
             A decade in, I work the full arc of a product, shaping the
             direction with the team, then taking it from idea to something
             real in people&rsquo;s hands. Having done this for early-stage
             startups and large teams alike, I&rsquo;ve learned the craft only
             matters once the right thing is built.
           </p>
-          <p className="text-[22px] leading-[1.3] tracking-[-0.02em] font-medium text-muted md:text-[20px]">
+          <p className="text-[20px] leading-[1.3] tracking-[-0.02em] font-medium text-muted">
             These days I design in AI-native IDEs, sketch to production with
             no handoff. Craft moved into the build, and that&rsquo;s the part
             I&rsquo;m here for.
