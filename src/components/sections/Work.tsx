@@ -75,7 +75,7 @@ export default function Work() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
-                <p className="mt-3 text-sm text-muted">
+                <p className="mt-3 text-sm font-medium text-muted">
                   <span className="text-black">{p.client}</span> - {p.category}
                 </p>
               </div>

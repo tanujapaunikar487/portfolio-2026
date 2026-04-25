@@ -39,7 +39,7 @@ export default function Hero() {
             />
             <span className="font-medium text-black">Product Designer</span>
           </div>
-          <div className="flex flex-col gap-1 pl-4 text-black md:flex-row md:items-center md:justify-center md:gap-5 md:pl-0">
+          <div className="flex flex-col gap-1 pl-4 font-medium text-black md:flex-row md:items-center md:justify-center md:gap-5 md:pl-0">
             <span>Pune (India)</span>
             <span className="tabular-nums text-muted">IST {time}</span>
           </div>
@@ -47,7 +47,7 @@ export default function Hero() {
         <div className="md:justify-self-end">
           <a
             href="mailto:tanuja.paunikar@gmail.com"
-            className="inline-flex items-center rounded-full bg-black px-4 py-2 text-[14px] text-white"
+            className="inline-flex items-center rounded-full bg-black px-4 py-2 text-[14px] font-medium text-white"
           >
             Get in Touch
           </a>

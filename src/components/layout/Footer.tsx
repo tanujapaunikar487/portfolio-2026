@@ -52,7 +52,7 @@ export default function Footer() {
         </h2>
         <a
           href="mailto:tanuja.paunikar@gmail.com"
-          className="inline-flex h-10 shrink-0 items-center self-start whitespace-nowrap rounded-full bg-black px-4 text-[14px] text-white md:self-end"
+          className="inline-flex h-10 shrink-0 items-center self-start whitespace-nowrap rounded-full bg-black px-4 text-[14px] font-medium text-white md:self-end"
         >
           Get in Touch
         </a>
