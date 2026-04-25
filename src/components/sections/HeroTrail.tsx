@@ -2,10 +2,10 @@ import Hero from "@/components/sections/Hero";
 
 export default function HeroTrail() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="flex min-h-screen flex-col">
+    <div className="relative overflow-hidden md:min-h-screen">
+      <div className="flex flex-col md:min-h-screen">
         <Hero />
-        <div className="flex-1" aria-hidden />
+        <div className="hidden flex-1 md:block" aria-hidden />
       </div>
     </div>
   );
