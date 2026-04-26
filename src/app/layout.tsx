@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = "https://tanujapaunikar.co";
 const title = "Tanuja Paunikar — Portfolio";
 const description =
-  "Product Designer shaping interfaces that make complex things feel simple.";
+  "Open to full-time roles where design owns the outcome. If you're building something ambitious, I'd love to chat.";
 const ogImage = {
   url: "/images/og-tanujapaunikar.png?v=3",
   secureUrl: `${siteUrl}/images/og-tanujapaunikar.png?v=3`,
