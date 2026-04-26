@@ -39,19 +39,25 @@ export default function RevealHeading({
             gsap.set(inners, { yPercent: 0, autoAlpha: 1 });
             return;
           }
-          gsap.fromTo(
-            inners,
-            { yPercent: 110, autoAlpha: 0 },
-            {
-              yPercent: 0,
-              autoAlpha: 1,
-              duration: 1.05,
-              ease: "power4.out",
-              stagger: 0.08,
-              delay,
-              scrollTrigger: { trigger: root, start },
-            },
-          );
+          gsap.set(inners, { yPercent: 110, autoAlpha: 0 });
+          const rect = root.getBoundingClientRect();
+          const alreadyInView = rect.top < window.innerHeight && rect.bottom > 0;
+          const tweenVars = {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 1.05,
+            ease: "power4.out",
+            stagger: 0.08,
+            delay,
+          };
+          if (alreadyInView) {
+            gsap.to(inners, tweenVars);
+            return;
+          }
+          gsap.to(inners, {
+            ...tweenVars,
+            scrollTrigger: { trigger: root, start, once: true },
+          });
         },
       );
     },
@@ -68,7 +74,7 @@ export default function RevealHeading({
             <span key={`${li}-${wi}`}>
               <span className="rh-mask inline-block overflow-hidden align-bottom pb-[0.06em]">
                 <span
-                  className={`rh-inner inline-block translate-y-[110%] opacity-0 will-change-transform ${innerClassName ?? ""}`}
+                  className={`rh-inner inline-block will-change-transform ${innerClassName ?? ""}`}
                 >
                   {word}
                 </span>
