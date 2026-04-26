@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 const HEADING = "Let’s push things forward.";
+
+const FOOTER_COPY =
+  "Looking for my next full-time role somewhere design is treated as a core discipline. Real autonomy, high craft, and designers trusted to own the outcome. If you're building something ambitious, I'd love to chat.";
 
 const socials = [
   { label: "LinkedIn", href: "#" },
@@ -44,6 +48,7 @@ function Pill({
 export default function Footer() {
   const scrollTop = () =>
     window.scrollTo({ top: 0 });
+  const footerRef = useRef<HTMLElement>(null);
   const [headingSize, setHeadingSize] = useState<string>("calc((100dvw - 40px)/13)");
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -91,8 +96,39 @@ export default function Footer() {
     };
   }, []);
 
+  useGSAP(
+    () => {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const footerCopy = footerRef.current?.querySelector<HTMLElement>(".footer-copy");
+      const footerWords = gsap.utils.toArray<HTMLElement>(".footer-word");
+      if (!footerCopy || !footerWords.length) return;
+
+      if (reduce) {
+        gsap.set(footerWords, { color: "#000000" });
+        return;
+      }
+
+      const muted =
+        getComputedStyle(footerCopy).getPropertyValue("color").trim() ||
+        "rgb(115, 115, 115)";
+      gsap.set(footerWords, { color: muted });
+      gsap.to(footerWords, {
+        color: "#000000",
+        ease: "none",
+        stagger: { each: 1, from: "start" },
+        scrollTrigger: {
+          trigger: footerCopy,
+          start: "top 80%",
+          end: "bottom 60%",
+          scrub: 0.6,
+        },
+      });
+    },
+    { scope: footerRef },
+  );
+
   return (
-    <footer className="px-6 pt-0 pb-10 md:px-10 md:pt-24">
+    <footer ref={footerRef} className="px-6 pt-0 pb-10 md:px-10 md:pt-24">
       <div className="border-t border-black/10 pt-12">
         <h2
           style={isDesktop ? { fontSize: headingSize } : undefined}
@@ -104,11 +140,13 @@ export default function Footer() {
         <div
           className="mt-16 flex flex-col gap-12 md:ml-auto md:max-w-[740px]"
         >
-          <p className="text-[24px] leading-[1.2] tracking-[-0.02em] font-normal text-muted md:text-[36px]">
-            Looking for my next full-time role somewhere design is treated as
-            a core discipline. Real autonomy, high craft, and designers
-            trusted to own the outcome. If you&apos;re building something
-            ambitious, I&apos;d love to chat.
+          <p className="footer-copy text-[24px] leading-[1.2] tracking-[-0.02em] font-normal text-muted md:text-[36px]">
+            {FOOTER_COPY.split(" ").map((word, i, arr) => (
+              <span key={i}>
+                <span className="footer-word">{word}</span>
+                {i < arr.length - 1 ? " " : ""}
+              </span>
+            ))}
           </p>
           <div className="flex items-center gap-4 self-start">
             <a
