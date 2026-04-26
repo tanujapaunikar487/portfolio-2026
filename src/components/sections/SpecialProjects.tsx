@@ -195,7 +195,7 @@ export default function SpecialProjects({
                   />
                 </picture>
               </div>
-              <p className="mt-6 w-[68vw] max-w-[45rem] text-[14px] font-medium leading-[1.3] tracking-[-0.022em] text-muted md:w-auto md:text-[20px]">
+              <p className="mt-6 w-[68vw] max-w-[45rem] text-[16px] font-medium leading-[1.3] tracking-[-0.022em] text-muted md:w-auto md:text-[20px]">
                 <span className="text-black">{card.title}.</span>{" "}
                 {card.body}
               </p>
