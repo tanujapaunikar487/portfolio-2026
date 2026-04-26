@@ -70,10 +70,19 @@ export default function Hero() {
     const renderProbe = (text: string) => {
       probe.textContent = "";
       for (const ch of text) {
+        const mask = document.createElement("span");
+        Object.assign(mask.style, {
+          display: "inline-block",
+          overflow: "hidden",
+          verticalAlign: "bottom",
+          paddingBottom: "0.04em",
+          lineHeight: "1",
+        });
         const letter = document.createElement("span");
         letter.style.display = "inline-block";
         letter.textContent = ch === " " ? " " : ch;
-        probe.appendChild(letter);
+        mask.appendChild(letter);
+        probe.appendChild(mask);
       }
     };
 
@@ -83,7 +92,7 @@ export default function Hero() {
       const natural = probe.getBoundingClientRect().width;
       const target = window.innerWidth - 40;
       if (natural > 0) {
-        setNameFontSize(`${(target / natural) * 200}px`);
+        setNameFontSize(`${(target / natural) * 200 * 0.97}px`);
         requestAnimationFrame(() => ScrollTrigger.refresh());
       }
     };
@@ -320,10 +329,10 @@ export default function Hero() {
               aria-label="Tanuja Paunikar"
               className="mx-[-4px] w-[calc(100dvw-40px)] text-center font-normal leading-[1] tracking-[-0.04em] text-black"
             >
-              <span className="block">
+              <span className="block whitespace-nowrap">
                 <SplitLetters text="Tanuja" />
               </span>
-              <span className="block">
+              <span className="block whitespace-nowrap">
                 <SplitLetters text="Paunikar" />
               </span>
             </h1>
