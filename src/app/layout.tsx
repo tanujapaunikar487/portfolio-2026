@@ -7,8 +7,8 @@ const title = "Tanuja Paunikar — Portfolio";
 const description =
   "Product Designer shaping interfaces that make complex things feel simple.";
 const ogImage = {
-  url: "/images/og-tanujapaunikar.png?v=2",
-  secureUrl: `${siteUrl}/images/og-tanujapaunikar.png?v=2`,
+  url: "/images/og-tanujapaunikar.png?v=3",
+  secureUrl: `${siteUrl}/images/og-tanujapaunikar.png?v=3`,
   width: 1200,
   height: 630,
   alt: "Tanuja Paunikar — Product Designer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/images/og-tanujapaunikar.png?v=2",
+        url: "/images/og-tanujapaunikar.png?v=3",
         alt: "Tanuja Paunikar — Product Designer",
       },
     ],
