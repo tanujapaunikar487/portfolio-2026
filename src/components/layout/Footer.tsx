@@ -156,7 +156,7 @@ export default function Footer() {
               Get in Touch
             </a>
             <a
-              href="/resume.pdf"
+              href="/tanuja-paunikar-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="link-underline text-[14px] font-medium text-black"

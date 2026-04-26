@@ -259,7 +259,7 @@ export default function Hero() {
           </div>
           <div className="hero-nav-item flex items-center gap-4 md:justify-self-end">
             <a
-              href="/resume.pdf"
+              href="/tanuja-paunikar-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="link-underline text-[14px] font-medium text-black"
