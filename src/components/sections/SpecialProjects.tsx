@@ -124,7 +124,9 @@ export default function SpecialProjects({
           ease: "expo.out",
           stagger: 0.08,
           force3D: true,
-          onComplete: () => gsap.set(slides, { willChange: "auto" }),
+          onComplete: () => {
+            gsap.set(slides, { willChange: "auto" });
+          },
         });
       };
 
