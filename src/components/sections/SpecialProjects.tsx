@@ -3,12 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import { specialProjects, type SpecialCard } from "@/data/special";
 import { v } from "@/lib/asset";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 export default function SpecialProjects({
   cards = specialProjects,
 }: {
   cards?: SpecialCard[];
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
   const rafId = useRef<number | null>(null);
@@ -89,6 +91,59 @@ export default function SpecialProjects({
     }
   };
 
+  useGSAP(
+    () => {
+      const root = sectionRef.current;
+      if (!root) return;
+      const slides = gsap.utils.toArray<HTMLElement>(
+        root.querySelectorAll(".sp-slide-inner"),
+      );
+      if (!slides.length) return;
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) {
+        gsap.set(slides, { xPercent: 0, autoAlpha: 1 });
+        return;
+      }
+
+      gsap.set(slides, {
+        xPercent: 8,
+        autoAlpha: 0,
+        force3D: true,
+        willChange: "transform, opacity",
+      });
+
+      let played = false;
+      const play = () => {
+        if (played) return;
+        played = true;
+        gsap.to(slides, {
+          xPercent: 0,
+          autoAlpha: 1,
+          duration: 1.4,
+          ease: "expo.out",
+          stagger: 0.08,
+          force3D: true,
+          onComplete: () => gsap.set(slides, { willChange: "auto" }),
+        });
+      };
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            play();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "0px 0px 20% 0px", threshold: 0 },
+      );
+      io.observe(root);
+
+      return () => io.disconnect();
+    },
+    { scope: sectionRef, dependencies: [] },
+  );
+
   const scrollBy = (dir: 1 | -1) => {
     const el = scroller.current;
     if (!el) return;
@@ -98,7 +153,7 @@ export default function SpecialProjects({
   };
 
   return (
-    <section>
+    <section ref={sectionRef}>
       <div
         ref={scroller}
         onPointerDown={onPointerDown}
@@ -120,27 +175,29 @@ export default function SpecialProjects({
             key={i}
             className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px]"
           >
-            <div
-              className="relative aspect-[9/10] w-full overflow-hidden rounded-[20px] bg-neutral-100 md:aspect-[16/9]"
-            >
-              <picture>
-                {card.mobileImage ? (
-                  <source media="(max-width: 767px)" srcSet={v(card.mobileImage)} />
-                ) : null}
-                <img
-                  src={v(card.image)}
-                  alt={card.title}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                  draggable={false}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </picture>
+            <div className="sp-slide-inner flex flex-col">
+              <div
+                className="relative aspect-[9/10] w-full overflow-hidden rounded-[20px] bg-neutral-100 md:aspect-[16/9]"
+              >
+                <picture>
+                  {card.mobileImage ? (
+                    <source media="(max-width: 767px)" srcSet={v(card.mobileImage)} />
+                  ) : null}
+                  <img
+                    src={v(card.image)}
+                    alt={card.title}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    draggable={false}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </picture>
+              </div>
+              <p className="mt-6 w-[68vw] max-w-[45rem] text-[14px] font-medium leading-[1.3] tracking-[-0.022em] text-muted md:w-auto md:text-[20px]">
+                <span className="text-black">{card.title}.</span>{" "}
+                {card.body}
+              </p>
             </div>
-            <p className="mt-6 max-w-[45rem] text-[18px] font-medium leading-[1.3] tracking-[-0.022em] text-muted md:text-[20px]">
-              <span className="text-black">{card.title}.</span>{" "}
-              {card.body}
-            </p>
           </article>
         ))}
 

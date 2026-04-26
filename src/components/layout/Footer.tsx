@@ -1,6 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const HEADING = "Let’s push things forward.";
 
 const socials = [
   { label: "LinkedIn", href: "#" },
@@ -17,7 +20,7 @@ function Pill({
   onClick?: () => void;
 }) {
   const className =
-    "inline-flex items-center text-sm text-black underline underline-offset-4 transition hover:text-muted";
+    "link-underline inline-flex items-center text-sm text-black";
   if (onClick) {
     return (
       <button onClick={onClick} className={className}>
@@ -41,36 +44,95 @@ function Pill({
 export default function Footer() {
   const scrollTop = () =>
     window.scrollTo({ top: 0 });
+  const [headingSize, setHeadingSize] = useState<string>("calc((100dvw - 40px)/13)");
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const probe = document.createElement("span");
+    Object.assign(probe.style, {
+      position: "absolute",
+      visibility: "hidden",
+      whiteSpace: "nowrap",
+      fontWeight: "400",
+      letterSpacing: "-0.04em",
+      fontSize: "200px",
+      fontFamily: "var(--font-sans), system-ui, sans-serif",
+      left: "-9999px",
+      top: "0",
+      lineHeight: "1",
+    });
+    probe.textContent = HEADING;
+    document.body.appendChild(probe);
+
+    const fit = () => {
+      const natural = probe.getBoundingClientRect().width;
+      const target = window.innerWidth - 40;
+      if (natural > 0) {
+        setHeadingSize(`${(target / natural) * 200 * 0.97}px`);
+      }
+    };
+
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(document.documentElement);
+    window.addEventListener("orientationchange", fit);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("orientationchange", fit);
+      probe.remove();
+    };
+  }, []);
 
   return (
-    <footer className="px-6 pt-24 pb-10 md:px-10">
+    <footer className="px-6 pt-0 pb-10 md:px-10 md:pt-24">
       <div className="border-t border-black/10 pt-12">
-        <h2 className="whitespace-pre-line text-[2.5rem] leading-[1] tracking-[-0.02em] text-black md:text-[52px] lg:text-[80px]">
-          {"Let’s push\nthings forward."}
+        <h2
+          style={isDesktop ? { fontSize: headingSize } : undefined}
+          className="text-[2.5rem] font-normal leading-[1] tracking-[-0.04em] text-black md:mx-[-20px] md:block md:w-[calc(100dvw-40px)] md:whitespace-nowrap md:text-left"
+        >
+          {HEADING}
         </h2>
 
         <div
-          className="mt-8 flex flex-col gap-6 md:ml-auto md:max-w-[740px]"
+          className="mt-16 flex flex-col gap-12 md:ml-auto md:max-w-[740px]"
         >
-          <p className="text-[20px] leading-[28px] tracking-[-0.02em] font-medium text-muted">
+          <p className="text-[24px] leading-[1.2] tracking-[-0.02em] font-normal text-muted md:text-[36px]">
             Looking for my next full-time role somewhere design is treated as
             a core discipline. Real autonomy, high craft, and designers
             trusted to own the outcome. If you&apos;re building something
             ambitious, I&apos;d love to chat.
           </p>
-          <a
-            href="mailto:tanuja.paunikar@gmail.com"
-            className="inline-flex h-10 shrink-0 items-center self-start whitespace-nowrap rounded-full bg-black px-4 text-[14px] font-medium text-white"
-          >
-            Get in Touch
-          </a>
+          <div className="flex items-center gap-4 self-start">
+            <a
+              href="mailto:tanuja.paunikar@gmail.com"
+              className="inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full bg-black px-4 text-[14px] font-medium text-white"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline text-[14px] font-medium text-black"
+            >
+              Resume
+            </a>
+          </div>
         </div>
       </div>
 
       <div
-        className="mt-24 flex flex-col gap-6 md:grid md:grid-cols-3 md:items-center"
+        className="mt-24 flex flex-col items-center gap-6 md:grid md:grid-cols-3 md:items-center"
       >
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap justify-center gap-6 md:justify-start">
           {socials.map((s) => (
             <Pill key={s.label} href={s.href}>
               {s.label}
@@ -78,11 +140,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="text-sm text-muted md:text-center">
+        <p className="text-center text-sm text-muted">
           Based in Pune, working with clients worldwide.
         </p>
 
-        <div className="flex flex-wrap gap-6 md:justify-end">
+        <div className="flex flex-wrap justify-center gap-6 md:justify-end">
           <Pill onClick={scrollTop}>
             <span className="flex items-center gap-2">
               <span aria-hidden>↑</span>

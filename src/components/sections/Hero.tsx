@@ -153,34 +153,35 @@ export default function Hero() {
       tl.from(".hero-nav-item", {
         y: -16,
         autoAlpha: 0,
-        duration: 0.8,
-        stagger: 0.08,
+        duration: 1.0,
+        stagger: 0.1,
       })
+        .addLabel("middle", "-=0.55")
         .from(
           ".hero-using",
-          { y: 24, autoAlpha: 0, duration: 0.8 },
-          "-=0.5",
+          { y: -24, autoAlpha: 0, duration: 1.1 },
+          "middle",
         )
         .from(
           ".hero-photo",
           {
             scale: 0.4,
             autoAlpha: 0,
-            duration: 0.9,
+            duration: 1.2,
             ease: "back.out(1.6)",
           },
-          "-=0.6",
+          "middle-=0.1",
         )
         .from(
           ".hero-x",
-          { autoAlpha: 0, scale: 0.6, duration: 0.5 },
-          "-=0.5",
+          { autoAlpha: 0, scale: 0.6, duration: 0.7 },
+          "middle+=0.4",
         )
         .fromTo(
           tools[0],
-          { yPercent: 110, autoAlpha: 0 },
-          { yPercent: 0, autoAlpha: 1, duration: 0.7, ease: "power4.out" },
-          "-=0.4",
+          { yPercent: -110, autoAlpha: 0 },
+          { yPercent: 0, autoAlpha: 1, duration: 1.0, ease: "power4.out" },
+          "middle+=0.1",
         )
         .fromTo(
           ".hero-letter",
@@ -188,11 +189,11 @@ export default function Hero() {
           {
             yPercent: 0,
             autoAlpha: 1,
-            duration: 1.05,
+            duration: 0.7,
             ease: "power4.out",
-            stagger: 0.04,
+            stagger: 0.028,
           },
-          "-=0.5",
+          "middle",
         );
 
       if (tools.length > 1) {
@@ -241,7 +242,7 @@ export default function Hero() {
 
   return (
     <div ref={heroRef} className="overflow-x-clip">
-      <section className="relative flex h-[100dvh] flex-col px-6 pb-0 md:px-10 md:pb-0">
+      <section className="relative flex h-[100dvh] flex-col px-6 pb-8 md:px-10 md:pb-0">
         <div className="z-10 flex items-center justify-between gap-4 pt-5 text-[14px] md:absolute md:inset-x-10 md:top-6 md:grid md:grid-cols-3 md:items-center md:pt-0">
           <div className="hero-nav-item flex items-center gap-2">
             <span
@@ -256,7 +257,15 @@ export default function Hero() {
             <span>Pune (India)</span>
             <span className="tabular-nums text-muted">IST {time}</span>
           </div>
-          <div className="hero-nav-item md:justify-self-end">
+          <div className="hero-nav-item flex items-center gap-4 md:justify-self-end">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline text-[14px] font-medium text-black"
+            >
+              Resume
+            </a>
             <a
               href="mailto:tanuja.paunikar@gmail.com"
               className="inline-flex items-center rounded-full bg-black px-4 py-2 text-[14px] font-medium text-white"
@@ -284,7 +293,7 @@ export default function Hero() {
                   priority
                 />
               </span>
-              <span className="hero-x hidden text-[26px] text-muted md:inline md:text-[28px]">
+              <span className="hero-x inline text-[20px] text-muted sm:text-[24px] md:text-[28px]">
                 ×
               </span>
               <span
@@ -327,7 +336,7 @@ export default function Hero() {
             <h1
               style={{ fontSize: nameFontSize }}
               aria-label="Tanuja Paunikar"
-              className="mx-[-4px] w-[calc(100dvw-40px)] text-center font-normal leading-[1] tracking-[-0.04em] text-black"
+              className="mx-[-4px] w-[calc(100dvw-40px)] text-center font-normal leading-[0.9] tracking-[-0.04em] text-black"
             >
               <span className="block whitespace-nowrap">
                 <SplitLetters text="Tanuja" />
@@ -356,7 +365,7 @@ export default function Hero() {
           <div className="text-[18px] font-medium text-muted md:pt-3">
             About me
           </div>
-          <p className="about-copy w-full max-w-[820px] min-w-0 text-[24px] leading-[1.2] tracking-[-0.02em] font-medium text-muted md:text-[36px]">
+          <p className="about-copy w-full max-w-[820px] min-w-0 text-[24px] leading-[1.2] tracking-[-0.02em] font-normal text-muted md:text-[36px]">
             {ABOUT_COPY.split(" ").map((word, i, arr) => (
               <span key={i}>
                 <span className="about-word">{word}</span>

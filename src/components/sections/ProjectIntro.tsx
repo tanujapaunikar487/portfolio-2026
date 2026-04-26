@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ProjectCase } from "@/data/projectCases";
+import RevealLines from "@/components/ui/RevealLines";
 
 export default function ProjectIntro({ project }: { project: ProjectCase }) {
   return (
@@ -8,10 +9,14 @@ export default function ProjectIntro({ project }: { project: ProjectCase }) {
         className="flex flex-col gap-8 border-t border-black/10 pt-12 md:flex-row md:items-end md:justify-between"
       >
         <div className="max-w-[38rem]">
-          <p className="text-[24px] font-medium leading-[1.3] tracking-tight text-muted md:text-[30px]">
-            <span className="text-black">{project.title}.</span>{" "}
-            {project.description}
-          </p>
+          <RevealLines
+            as="p"
+            className="text-[24px] font-medium leading-[1.1] tracking-tight text-muted md:text-[30px]"
+            segments={[
+              { text: `${project.title}. `, className: "text-black" },
+              { text: project.description },
+            ]}
+          />
 
           <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
             {project.stack.map((s) => (
