@@ -175,7 +175,7 @@ export default function SpecialProjects({
         {cards.map((card, i) => (
           <article
             key={i}
-            className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px]"
+            className="flex w-[85vw] shrink-0 snap-start flex-col md:w-[920px] min-[1440px]:w-[1260px]"
           >
             <div className="sp-slide-inner flex flex-col">
               <div
