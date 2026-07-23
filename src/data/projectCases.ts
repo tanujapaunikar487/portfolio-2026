@@ -15,18 +15,18 @@ export type ProjectCase = {
 
 export const projectCases: ProjectCase[] = [
   {
-    id: "healthfirst",
-    title: "HealthFirst",
+    id: "aioseo",
+    title: "AIOSEO, 4.5 years of shaping search",
     description:
-      "A healthcare platform for the people who manage their family's health, not just their own.",
-    ctaLabel: "Open HealthFirst",
-    ctaHref: "https://healthfirst-1xsy.onrender.com/",
+      "WordPress's most-used SEO plugin, product, marketing, design system, and two sub-brand refreshes.",
+    ctaLabel: "Open AIOSEO",
+    ctaHref: "https://wordpress.org/plugins/all-in-one-seo-pack/",
     stack: [
-      { name: "React", src: "/images/logos/react.svg" },
-      { name: "Laravel", src: "/images/logos/laravel.svg" },
-      { name: "Claude", src: "/images/logos/claude.svg" },
+      { name: "AIOSEO", src: "/images/logos/aioseo.svg" },
+      { name: "LowFruits", src: "/images/logos/lowfruits.svg" },
+      { name: "SEOBoost", src: "/images/logos/seoboost.svg" },
     ],
-    cards: specialProjects,
+    cards: aioseoCards,
   },
   {
     id: "orime",
@@ -43,17 +43,17 @@ export const projectCases: ProjectCase[] = [
     cards: orimeCards,
   },
   {
-    id: "aioseo",
-    title: "AIOSEO, 4.5 years of shaping search",
+    id: "healthfirst",
+    title: "HealthFirst",
     description:
-      "WordPress's most-used SEO plugin, product, marketing, design system, and two sub-brand refreshes.",
-    ctaLabel: "Open AIOSEO",
-    ctaHref: "https://wordpress.org/plugins/all-in-one-seo-pack/",
+      "A healthcare platform for the people who manage their family's health, not just their own.",
+    ctaLabel: "Open HealthFirst",
+    ctaHref: "https://healthfirst-1xsy.onrender.com/",
     stack: [
-      { name: "AIOSEO", src: "/images/logos/aioseo.svg" },
-      { name: "LowFruits", src: "/images/logos/lowfruits.svg" },
-      { name: "SEOBoost", src: "/images/logos/seoboost.svg" },
+      { name: "React", src: "/images/logos/react.svg" },
+      { name: "Laravel", src: "/images/logos/laravel.svg" },
+      { name: "Claude", src: "/images/logos/claude.svg" },
     ],
-    cards: aioseoCards,
+    cards: specialProjects,
   },
 ];
