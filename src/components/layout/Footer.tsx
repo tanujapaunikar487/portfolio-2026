@@ -7,7 +7,7 @@ import { gsap, useGSAP } from "@/lib/gsap";
 const HEADING = "Let’s push things forward.";
 
 const FOOTER_COPY =
-  "Looking for my next full-time role somewhere design is treated as a core discipline. Real autonomy, high craft, and designers trusted to own the outcome. If you're building something ambitious, I'd love to chat.";
+  "Looking for my next full-time role, one with real autonomy, high craft, and designers trusted to own the outcome. If you're building something ambitious, I'd love to chat.";
 
 const socials = [
   { label: "LinkedIn", href: "#" },

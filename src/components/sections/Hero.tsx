@@ -298,7 +298,7 @@ export default function Hero() {
               </span>
               <span
                 className="relative inline-flex h-[1.2em] items-center overflow-hidden"
-                aria-label="Claude Code, Figma, Codex, Webflow"
+                aria-label="Claude Code, Figma, Codex, Cursor"
               >
                 <span className="invisible block whitespace-nowrap" aria-hidden>
                   Claude Code
@@ -313,7 +313,7 @@ export default function Hero() {
                   Codex
                 </span>
                 <span className="hero-tool absolute inset-0 flex items-center whitespace-nowrap will-change-transform">
-                  Webflow
+                  Cursor
                 </span>
               </span>
             </div>
