@@ -7,6 +7,7 @@
   --color-muted: color-mix(in oklab, var(--color-black) 50%, transparent);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
+  --breakpoint-wide: 1440px;
 }
 
 html,
